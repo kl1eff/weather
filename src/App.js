@@ -9,10 +9,10 @@ function App() {
     const currentPart = 'current.json?key=ddb3c04efbbc46ad9d6201356230905&q=';
     const forecastPart = 'forecast.json?key=ddb3c04efbbc46ad9d6201356230905&q=';
     
-    const modes = [currentPart, forecastPart];
+    const modes = [(p) => currentPart, (p) => forecastPart + p + '&days=7&aqi=no&alerts=no'];
 
     
-    const [selectedMode, setSelectedMode] = useState(null);
+    const [selectedMode, setSelectedMode] = useState(0);
     const [region, setRegion] = useState(null);
     const [data, setData] = useState(null);
 
@@ -24,16 +24,13 @@ function App() {
         setSelectedMode(event.target.selectedIndex);
     };
     
-    const load = async (event) => {
-        console.log('mode: ', selectedMode)
-        const request = baseURL + modes[selectedMode] + region;
-        console.log(request);
-        const response = await fetch(request);
+    const buttonHandle = async () => {
+        console.log('BUTTON CLICKED LISTENER')
+        const response = await fetch(baseURL + modes[selectedMode](region) + region);
         const jsonData = await response.json();
-        console.log(jsonData);
+        jsonData.currentMode = selectedMode;
+
         setData(jsonData);
-        console.log(response.status);
-        
     };
 
     
@@ -41,8 +38,8 @@ function App() {
     return (
         <div id="app">
             <div className="wrapper">
-                <Menu selectHandle={selectHandle} buttonHandle={load} setRegion={setRegion}/>
-                <Info data={data}/>
+                <Menu selectHandle={selectHandle} buttonHandle={buttonHandle} setRegion={setRegion}/>
+                <Info data={data} mode={selectedMode}/>
             </div>
         </div>
     );
