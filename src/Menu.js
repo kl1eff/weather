@@ -1,12 +1,10 @@
 function Menu(props) {
     return (
-        <div className="input">
+        <div className="menu">
             <input type="text" placeholder="укажите регион..." onChange={(e) => props.setRegion(e.target.value)} />
-            <select onChange={props.selectHandle}>
-                <option value="0">в настоящее время</option>
-                <option value="1">Прогноз</option>
-            </select>
-            <button onClick={props.buttonHandle}>Готово</button>
+            <button onClick={props.buttonHandle}>
+                <img src="./search.png" alt="huy"/>
+            </button>
         </div>
     );
 }
