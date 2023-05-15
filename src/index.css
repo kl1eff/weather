@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background-color: rgb(216, 252, 255);
@@ -16,8 +15,6 @@ body {
   color: #014b58;
   position: relative;
 }
-
-
 #root {
   position: absolute;
   display: flex;
@@ -25,23 +22,39 @@ body {
   align-items: center;
   gap: 2rem;
 }
-
 #app {
   height: 80vh;
   width: 60vw;
 }
-
 .menu {
   display: flex;
   justify-content: center;
+  align-items: stretch;
   gap: 2rem;
+  max-width: none;
 }
-
 input {
-  height: 1.5rem;
-}
+  height: 2rem;
+  width: 1000rem;
+  padding-left: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.137);
+  border: 3px solid black;
+  color: rgb(15, 60, 66);
+  font-weight: 700;
 
+}
+::placeholder {
+  font-weight: 700;
+  opacity: 1;
+  color: rgb(15, 60, 66);
+}
 button {
   background: 0;
   border: 0;
+}
+
+button > img {
+  content:url(./images/search.png);
+  width: 3em;
+  height: auto;
 }
