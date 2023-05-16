@@ -1,50 +1,37 @@
 function Info(props) {
     const data = props.data;
+    const days = [];
+    
+    if (!data) return <div className="info"></div>;
+    if (data && !data.ok) return <div className="info">ERROR</div>;
 
-    const getDayInfo = (dayInfo) => {
-        console.log('getDayInfo call');
-        return (
-            <li>
-                {dayInfo.date.split('-')[1] + '.' + dayInfo.date.split('-')[2]}
-                <br />
-                <div className="morning">Утро: {dayInfo.hour[6].temp_c}</div>
-                <div className="day">День: {dayInfo.hour[12].temp_c}</div>
-                <div className="afternoon">Вечер: {dayInfo.hour[18].temp_c}</div>
-            </li>
-        );
-    };
+    const getDayInfo = (dayInfo) => (
+        <li>
+            <div>
+                <div className="morning daytime"><span>Утро: {dayInfo.hour[6].temp_c}°C</span>  <img src={dayInfo.hour[6].condition.icon}/></div>
+                <div className="day daytime"><span>День: {dayInfo.hour[12].temp_c}°C</span> <img src={dayInfo.hour[12].condition.icon}/></div>
+                <div className="afternoon daytime"><span>Вечер: {dayInfo.hour[18].temp_c}°C</span><img src={dayInfo.hour[18].condition.icon}/></div>
+            </div>
+            <h2>{dayInfo.date.split('-')[1] + '.' + dayInfo.date.split('-')[2]}</h2>
+        </li>
+    );
+    
 
-    if (!data) return <div className="info">error</div>;
-    switch (props.mode) {
-        case 0:
-            return (
-                <div className="info">
-                    <p>{data.current.temp_c}°C</p>
-                    <div className="condition">
-                        <p>{data.current.condition.text}</p>
-                        <img src={data.current.condition.icon} alt="icon" />
-                    </div>
-                </div>
-            );
-        case 1:
-            if (data.currentMode === 1) {
-                const days = [];
-                for (let i = 0; i < 7; i++) {
-                    days.push(getDayInfo(data.forecast?.forecastday[i]));
-                    console.log(data.forecast?.forecastday[i]);
-                }
+    data.forecast.forecastday.forEach(element => {
+        days.push(getDayInfo(element));
+    });
 
-                return (
-                    <div className="info">
-                        <p>{data.current.temp_c}°C</p>
-                        <ul>{days}</ul>
-                    </div>
-                );
-            }
-            break;
-        default:
-            break;
-    }
+    // for (let i = 0; i < 7; i++) {
+    //     days.push(getDayInfo(data.forecast?.forecastday[i]));
+    // }
+
+
+    return (
+        <div className="info">
+            <h2>Current weather: {data.current.temp_c}°C</h2>
+            <ul>{days}</ul>
+        </div>
+    );
 }
 
 export default Info;

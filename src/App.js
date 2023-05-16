@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Menu from './Menu';
 import Info from './Info';
 
@@ -10,20 +10,18 @@ function App() {
 
     const modes = [(p) => currentPart, (p) => forecastPart + p + '&days=7&aqi=no&alerts=no'];
 
-    const [selectedMode, setSelectedMode] = useState(0);
-    const [region, setRegion] = useState(null);
+    const [region, setRegion] = useState('');
     const [data, setData] = useState(null);
 
     const selectHandle = (event) => {
-        console.log('select value: ', event.target.selectedIndex);
-        setSelectedMode(event.target.selectedIndex);
+        
     };
 
     const buttonHandle = async () => {
         console.log('BUTTON CLICKED LISTENER');
-        const response = await fetch(baseURL + modes[0](region) + region);
+        const response = await fetch(baseURL + modes[1](region) + region);
         const jsonData = await response.json();
-        jsonData.currentMode = selectedMode;
+        jsonData.ok = response.ok;
 
         setData(jsonData);
     };
@@ -31,7 +29,7 @@ function App() {
     return (
         <div id="app">
             <Menu selectHandle={selectHandle} buttonHandle={buttonHandle} setRegion={setRegion} />
-            <Info data={data} mode={selectedMode} />
+            <Info data={data} mode={1} />
         </div>
     );
 }
