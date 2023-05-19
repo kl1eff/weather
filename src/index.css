@@ -36,12 +36,13 @@ body {
   gap: 2rem;
   max-width: none;
 }
+/* rgba(0, 0, 0, 0.281); */
 input {
   height: 3rem;
   width: 1000rem;
   padding-left: 0.5rem;
   background-color: rgba(0, 0, 0, 0.055);
-  border: 2px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.555);
   border-radius: 0.5rem;
   color: rgb(15, 60, 66);
   font-weight: 700;
@@ -77,6 +78,7 @@ button > img {
   flex-direction: row;
   align-items: center;
   font-size: 1.7rem;
+  color: rgb(73, 73, 73);
 }
 
 ul {
@@ -106,6 +108,7 @@ li {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.082);
   border-radius: 1rem;
+  border: 2px solid #696969;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -119,4 +122,8 @@ li {
 .time {
   font-weight: 500;
   font-size: 2rem;
+}
+
+#date {
+  color: #777777;
 }
