@@ -6,7 +6,7 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <h1>Weather for everyone</h1>
+    <h1>P O G O D A</h1>
     <App />
   </React.StrictMode>
 );
