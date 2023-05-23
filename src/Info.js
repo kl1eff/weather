@@ -9,19 +9,19 @@ function Info(props) {
         <li>
             <div>
                 <div className="night daytime">
-                    <span>{dayInfo.hour[1].temp_c}°C</span> <img src={dayInfo.hour[1].condition.icon} />
+                    <img src={dayInfo.hour[1].condition.icon} /> <span>{dayInfo.hour[1].temp_c}°C</span>
                 </div>
                 <div className="morning daytime">
-                    <span>{dayInfo.hour[6].temp_c}°C</span> <img src={dayInfo.hour[6].condition.icon} />
+                    <img src={dayInfo.hour[6].condition.icon} /> <span>{dayInfo.hour[6].temp_c}°C</span>
                 </div>
                 <div className="day daytime">
-                    <span>{dayInfo.hour[12].temp_c}°C</span> <img src={dayInfo.hour[12].condition.icon} />
+                    <img src={dayInfo.hour[12].condition.icon} /> <span>{dayInfo.hour[12].temp_c}°C</span> 
                 </div>
                 <div className="evening daytime">
-                    <span>{dayInfo.hour[18].temp_c}°C</span> <img src={dayInfo.hour[18].condition.icon} />
+                    <img src={dayInfo.hour[18].condition.icon} /> <span>{dayInfo.hour[18].temp_c}°C</span>
                 </div>
             </div>
-            <span className="time" id="date" >{dayInfo.date.split('-')[1] + '.' + dayInfo.date.split('-')[2]}</span>
+            <span className="time" id="date" >{dayInfo.date.split('-')[2] + '.' + dayInfo.date.split('-')[1]}</span>
         </li>
     );
 
@@ -32,14 +32,6 @@ function Info(props) {
     return (
         <div className="info">
             <ul>
-                {/* <li>
-                    <div id="daytime">
-                        <span className="time">1:00</span>
-                        <span className="time">6:00</span>
-                        <span className="time">12:00</span>
-                        <span className="time">18:00</span>
-                    </div>
-                </li> */}
                 {days}
             </ul>
         </div>
