@@ -6,14 +6,14 @@
   }
   body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: rgb(228, 244, 255);
+    background-color: rgb(26, 26, 26);
     margin: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #014b58;
+    color: #ffffff;
     position: relative;
   }
   
@@ -44,9 +44,9 @@
     width: 1000rem;
     padding-left: 0.5rem;
     background-color: rgba(0, 0, 0, 0.055);
-    border: 2px solid rgba(0, 0, 0, 0.555);
+    border: 2px solid rgba(255, 255, 255, 0.555);
     border-radius: 0.5rem;
-    color: rgb(15, 60, 66);
+    color: rgb(255, 255, 255);
     font-weight: 700;
     font-size: 20px;
   
@@ -54,7 +54,7 @@
   ::placeholder {
     font-weight: 700;
     opacity: 1;
-    color: rgb(15, 60, 66);
+    color: rgb(255, 255, 255);
   }
   button {
     background: 0;
@@ -80,7 +80,7 @@
     flex-direction: row;
     align-items: center;
     font-size: 1.7rem;
-    color: rgb(73, 73, 73);
+    color: rgb(255, 255, 255);
   }
   
   ul {
@@ -108,9 +108,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.082);
+    background-color: rgba(0, 0, 0, 0.301);
     border-radius: 1rem;
-    border: 2px solid #696969;
+    border: 1px solid #ffffff;
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -127,6 +127,9 @@
   }
   
   #date {
-    color: #777777;
+    color: #ffffff;
+  }
+  h1 {
+    color: rgb(205, 235, 255);
   }
 }
